@@ -2,7 +2,7 @@
   "name": "movies-data",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "node server.js"
   },
