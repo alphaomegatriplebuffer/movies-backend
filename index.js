@@ -48,6 +48,10 @@ app.get("/records", async (req, res) => {
   res.json(data);
 });
 
+app.get('/', (req,res)=>{
+  res.json('hello')
+})
+
 
 require("mongoose")
   .connect(process.env.MONGO_URI)
