@@ -56,7 +56,7 @@ app.get('/', (req,res)=>{
 require("mongoose")
   .connect(process.env.MONGO_URI)
   .then((res) => {
-    app.listen("mongodb+srv://dbuser:012345@cluster0.wytfhtw.mongodb.net/", () => {
+    app.listen(PORT, () => {
       console.log(`Server is running on PORT: ${PORT}`);
     });
     console.log("Database Connected!");
