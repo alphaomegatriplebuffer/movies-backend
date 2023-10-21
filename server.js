@@ -15,35 +15,35 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public/images"));
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "public/images");
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.fieldname + "_" + file.originalname);
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "public/images");
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, file.fieldname + "_" + file.originalname);
+//   },
+// });
 
-const upload = multer({
-  storage: storage,
-});
+// const upload = multer({
+//   storage: storage,
+// });
 
-app.post("/upload", upload.single("file"), async (req, res) => {
-  const { title, genre, duration, description } = req.body;
+// app.post("/upload", upload.single("file"), async (req, res) => {
+//   const { title, genre, duration, description } = req.body;
 
-  const data = {
-    title: title,
-    genre: genre,
-    duration: duration,
-    banner: req.file.filename,
-    description: description,
-  };
-  console.log(data);
+//   const data = {
+//     title: title,
+//     genre: genre,
+//     duration: duration,
+//     banner: req.file.filename,
+//     description: description,
+//   };
+//   console.log(data);
 
-  const saveResult = await DataModel.insertMany(data);
-  console.log(saveResult);
-  res.json(saveResult);
-});
+//   const saveResult = await DataModel.insertMany(data);
+//   console.log(saveResult);
+//   res.json(saveResult);
+// });
 
 app.get("/records", async (req, res) => {
   const data = await DataModel.find({});
