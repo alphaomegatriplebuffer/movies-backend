@@ -8,7 +8,7 @@ require("./dbConn");
 require("dotenv").config();
 
 
-const PORT = 8080;
+const PORT = 3000;
 
 const app = express();
 app.use(cors());

@@ -2,9 +2,9 @@
   "name": "movies-data",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "dev": "node index.js"
   },
   "keywords": [],
   "author": "",
