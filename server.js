@@ -5,8 +5,10 @@ const path = require("path");
 const mongoose = require("mongoose");
 const DataModel = require("./fileModel");
 require("./dbConn");
+require("dotenv").config();
 
-const PORT = 8081;
+
+const PORT = 8080;
 
 const app = express();
 app.use(cors());
@@ -50,7 +52,7 @@ app.get("/records", async (req, res) => {
 });
 
 mongoose
-  .connect(`mongodb+srv://dbuser:012345@cluster0.wytfhtw.mongodb.net/`)
+  .connect(process.env.MONGO_URI)
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
