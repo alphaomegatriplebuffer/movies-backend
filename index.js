@@ -1,8 +1,5 @@
 const express = require("express");
-const multer = require("multer");
 const cors = require("cors");
-const path = require("path");
-const mongoose = require("mongoose");
 const DataModel = require("./fileModel");
 require("./dbConn");
 require("dotenv").config();
@@ -51,13 +48,17 @@ app.get("/records", async (req, res) => {
   res.json(data);
 });
 
-mongoose
+
+require("mongoose")
   .connect(process.env.MONGO_URI)
-  .then(() => {
+  .then((res) => {
     app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
+      console.log(`Server is running on PORT: ${PORT}`);
     });
-    console.log(`Database Connected!`);
+    console.log("Database Connected!");
+  })
+  .catch((err) => {
+    console.log(err);
   });
 
 
