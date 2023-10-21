@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const DataModel = require("./fileModel");
 require("./dbConn");
 
-const PORT = 3000;
+const PORT = 8081;
 
 const app = express();
 app.use(cors());
